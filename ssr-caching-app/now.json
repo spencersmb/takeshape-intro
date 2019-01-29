@@ -1,0 +1,30 @@
+{
+  "name": "ssr-cache",
+  "version": 2,
+  "build": {
+    "env": {
+      "TAKESHAPE_PROJECT_ID": "fed9f3e1-8634-4bce-8d57-f554f1766cb6",
+      "TAKESHAPE_KEY": "@takeshape-api-key"
+    }
+  },
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    },
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    },
+    {
+      "src": "server.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/blog/(?<id>.+)",
+      "dest": "/blog?id=$id"
+    }
+  ]
+}

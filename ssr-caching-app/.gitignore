@@ -1,0 +1,7 @@
+# IntelliJ project files
+node_modules/
+.env
+.idea/
+.next/
+graphql.config.json
+graphql.schema.json
