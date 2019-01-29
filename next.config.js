@@ -4,6 +4,7 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
+  target: 'serverless',
   webpack: config => {
     config.plugins = config.plugins || []
 
@@ -16,11 +17,6 @@ module.exports = {
         systemvars: true
       })
     ]
-
-    // Fixes npm packages that depend on `fs` module
-    config.node = {
-      fs: 'empty'
-    }
 
     return config
   }

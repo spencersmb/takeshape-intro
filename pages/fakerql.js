@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import { getImageUrl } from 'takeshape-routing'
 
 const SINGLE_ITEM_QUERY = gql`
     query SINGLE_ITEM_QUERY {
@@ -74,15 +75,20 @@ export default class extends Component {
               <h1>{getPost.title}</h1>
               <div>
                 <h5>{getPost.author.name}</h5>
-                <div><img style={{width: 300}} src={url + getPost.author.image.path} alt=""/></div>
+                <div>
+                  {/*// image resized to 300x250*/}
+                  <img src={getImageUrl(getPost.author.image.path, {w: 300})}/>
+                </div>
               </div>
               <div>
                 {/*<img src={getImageUrl('/my/image/path', {w: 300, h: 250})}/> */}
-                <img style={{maxWidth: '100%'}} src={url + getPost.featureImage.path} alt=""/></div>
-              <p>
-                {getPost.deck}
-              </p>
-              <div dangerouslySetInnerHTML={{__html: getPost.bodyHtml}}/>
+                <img style={{maxWidth: '100%'}}
+                     src={getImageUrl(getPost.featureImage.path, {w: 1200, h: 500, fit: 'clamp'})}/>
+                <p>
+                  {getPost.deck}
+                </p>
+                <div dangerouslySetInnerHTML={{__html: getPost.bodyHtml}}/>
+              </div>
             </div>
           )
         }}

@@ -1,11 +1,9 @@
 {
   "name": "ssr-cache",
   "version": 2,
-  "build": {
-    "env": {
-      "TAKESHAPE_PROJECT_ID": "fed9f3e1-8634-4bce-8d57-f554f1766cb6",
-      "TAKESHAPE_KEY": "@takeshape-api-key"
-    }
+  "env": {
+    "TAKESHAPE_PROJECT_ID": "fed9f3e1-8634-4bce-8d57-f554f1766cb6",
+    "TAKESHAPE_KEY": "@takeshape-api-key"
   },
   "builds": [
     {
